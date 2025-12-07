@@ -1,0 +1,24 @@
+[
+    {
+        "name": "全球套餐 · 5GB",
+        "region": "全球",
+        "data": "5GB",
+        "price": 99,
+        "currency": "CNY",
+        "validDays": 30,
+        "physicalCard": true,
+        "groupDiscount": true,
+        "link": "#contact"
+    },
+    {
+        "name": "亚洲套餐 · 3GB",
+        "region": "亚洲",
+        "data": "3GB",
+        "price": 49,
+        "currency": "CNY",
+        "validDays": 15,
+        "physicalCard": false,
+        "groupDiscount": true,
+        "link": "#contact"
+    }
+]
