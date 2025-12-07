@@ -7,7 +7,7 @@ export default function ComplianceNotice() {
     try {
       const n = new URLSearchParams(window.location.search).get("notice");
       setOpen(n === "cn");
-    } catch {}
+    } catch { }
   }, []);
   if (!open) return null;
   return (
