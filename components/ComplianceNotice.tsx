@@ -1,14 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 
 export default function ComplianceNotice() {
-  const params = useSearchParams();
   const [open, setOpen] = useState(false);
   useEffect(() => {
-    const n = params.get("notice");
-    setOpen(n === "cn");
-  }, [params]);
+    try {
+      const n = new URLSearchParams(window.location.search).get("notice");
+      setOpen(n === "cn");
+    } catch {}
+  }, []);
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50">
@@ -24,4 +24,3 @@ export default function ComplianceNotice() {
     </div>
   );
 }
-

@@ -10,6 +10,13 @@ export function middleware(request: NextRequest) {
     }
     url.searchParams.set("notice", "cn");
     return NextResponse.redirect(url);
+  } else if (hostname === "127.0.0.1") {
+    const url = request.nextUrl.clone();
+    if (!url.pathname.startsWith("/hk")) {
+      url.pathname = "/hk";
+    }
+    url.searchParams.set("notice", "cn");
+    return NextResponse.redirect(url);
   }
   return NextResponse.next();
 }
