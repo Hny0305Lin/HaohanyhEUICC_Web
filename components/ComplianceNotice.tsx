@@ -6,7 +6,12 @@ export default function ComplianceNotice() {
   useEffect(() => {
     try {
       const n = new URLSearchParams(window.location.search).get("notice");
-      setOpen(n === "cn");
+      const key = "notice_ack";
+      const silentHours = 24;
+      const now = Date.now();
+      const last = Number(localStorage.getItem(key) || 0);
+      const withinSilent = last && now - last < silentHours * 3600 * 1000;
+      setOpen(n === "cn" && !withinSilent);
     } catch { }
   }, []);
   if (!open) return null;
@@ -18,7 +23,7 @@ export default function ComplianceNotice() {
           您访问的域名为中国大陆合规限制域名，已为您切换至“国际港澳台站”。
         </p>
         <div className="mt-4 flex justify-end">
-          <button className="rounded-full bg-[#0052d9] text-background px-4 py-1 text-sm" onClick={() => setOpen(false)}>我知道了</button>
+          <button className="rounded-full bg-[#0052d9] text-background px-4 py-1 text-sm" onClick={() => { localStorage.setItem("notice_ack", String(Date.now())); setOpen(false); }}>我知道了</button>
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@ export default async function LocaleLayout({
             <Header locale={locale} />
             <ComplianceNotice />
             {children}
-            <Footer />
+            <Footer showICP={locale === "cn"} />
         </>
     );
 }

@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function Footer({ showICP = false }: { showICP?: boolean }) {
     return (
         <footer className="w-full border-t border-white/10 mt-16 bg-[#80c9fe]">
             <div className="mx-auto max-w-6xl px-4 py-10 grid gap-6 md:grid-cols-4">
@@ -27,7 +27,7 @@ export default function Footer() {
                     </ul>
                 </div>
                 <div className="text-sm text-foreground/80">
-                    <div>备案号: 京ICP备00000000号-1</div>
+                    {showICP && <div>备案号: 京ICP备00000000号-1</div>}
                     <div className="mt-2">© 2019-{new Date().getFullYear()} <a href="https://www.haohanyh.ovh/" target="_blank" className="underline hover:opacity-80">Haohanyh</a></div>
                 </div>
             </div>
