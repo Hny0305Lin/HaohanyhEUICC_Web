@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export function middleware(request: NextRequest) {
   const hostname = request.nextUrl.hostname.toLowerCase();
   const pathname = request.nextUrl.pathname;
-  const mainland = (process.env.MAINLAND_DOMAIN || "").toLowerCase();
+  const mainland = (process.env.MAINLAND_DOMAIN || "www.euicc.haohanyh.com").toLowerCase();
   const intl = (process.env.INTL_DOMAIN || "netlify.euicc.haohanyh.ovh").toLowerCase();
   const enforceCN = process.env.ENFORCE_CN_REDIRECT === "true";
   const enforceHK = process.env.ENFORCE_HK_REDIRECT === "true";

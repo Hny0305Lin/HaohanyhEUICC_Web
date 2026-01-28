@@ -12,7 +12,7 @@ export default function ComplianceNotice() {
       const last = Number(localStorage.getItem(key) || 0);
       const withinSilent = last && now - last < silentHours * 3600 * 1000;
       setOpen(n === "cn" && !withinSilent);
-    } catch { }
+    } catch {}
   }, []);
   if (!open) return null;
   return (
